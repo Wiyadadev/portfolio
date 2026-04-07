@@ -83,4 +83,39 @@ li {
 li:hover {
   transform: translateX(10px); /* เลื่อนนิดๆ เมื่อชี้ */
   background: #dfe6e9;
+}body {
+  /* สีพื้นหลังแบบเข้มเข้ม (Dark Grey) */
+  background-color: #1e1e1e; 
+  /* สีตัวอักษรเป็นสีขาวนวล (Off-white) เพื่อไม่ให้แสบตา */
+  color: #d4d4d4;
+  font-family: 'Courier New', Courier, monospace; /* ใช้ Font แบบ Monospace ให้ฟีลโค้ด */
+  line-height: 1.6;
+  margin: 0;
+  padding: 50px 20px;
 }
+
+/* ตกแต่งหัวข้อให้ดูเด่นด้วยสีเขียวแบบ Terminal */
+h1, h2, h3 {
+  color: #4ec9b0; 
+}
+
+/* ส่วนของลิงก์และอีเมล */
+a {
+  color: #9cdcfe;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #569cd6;
+}
+
+/* ตกแต่งส่วน "ทักษะ" หรือ "โครงการ" ให้เหมือนเป็น Block ของ Code */
+li {
+  background-color: #252526;
+  border-left: 4px solid #ce9178; /* เพิ่มเส้นสีส้มด้านซ้ายเหมือน Highlight บรรทัด */
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  list-style-type: none;
+}
+
