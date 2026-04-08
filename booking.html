@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bar Booking</title>
+
+<style>
+body {
+  background: #0f172a;
+  color: white;
+  font-family: Arial;
+  padding: 40px;
+}
+
+.container {
+  max-width: 500px;
+  margin: auto;
+  background: #1e293b;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #38bdf8;
+  border: none;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0ea5e9;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Book a Table 🍸</h1>
+
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Email" required>
+    
+    <select>
+      <option>2 People</option>
+      <option>4 People</option>
+      <option>6 People</option>
+    </select>
+
+    <input type="date" required>
+    <input type="time" required>
+
+    <button type="submit">Reserve Now</button>
+  </form>
+</div>
+
+</body>
+</html>
