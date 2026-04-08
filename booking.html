@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,21 +49,65 @@ button:hover {
 
 <div class="container">
   <h1>Book a Table 🍸</h1>
-<form>
-  <!-- input ทั้งหมด -->
-  <button type="submit">Reserve Now</button>
-</form>
 
-<p id="message"></p>
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Email" required>
 
-<script>
-document.querySelector("form").addEventListener("submit", function(e) {
+    <select>
+      <option>2 People</option>
+      <option>4 People</option>
+      <option>6 People</option>
+    </select>
+
+    <input type="date" required>
+    <input type="time" required>
+
+    <button type="submit">Reserve Now</button>
+  </form>
+
+  <p id="message"></p>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, addDoc, collection } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAGSFSYivH5ba5FnP5w3k0exLMGzzMsm-4",
+  authDomain: "bar-booking-dddb1.firebaseapp.com",
+  projectId: "bar-booking-dddb1",
+  storageBucket: "bar-booking-dddb1.firebasestorage.app",
+  messagingSenderId: "591362664905",
+  appId: "1:591362664905:web:feeccad7fcfaadd497e018"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+document.querySelector("form").addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const name = document.querySelector('input[type="text"]').value;
+  const email = document.querySelector('input[type="email"]').value;
+  const people = document.querySelector('select').value;
+  const date = document.querySelector('input[type="date"]').value;
+  const time = document.querySelector('input[type="time"]').value;
+
+  await addDoc(collection(db, "bookings"), {
+    name,
+    email,
+    people,
+    date,
+    time
+  });
+
   document.getElementById("message").innerText =
-    "Reservation successful, " + name;
+    "Reservation saved successfully! 🎉";
+
+  e.target.reset();
 });
 </script>
+
 </body>
 </html>
