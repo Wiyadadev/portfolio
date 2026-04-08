@@ -48,36 +48,21 @@ button:hover {
 
 <div class="container">
   <h1>Book a Table 🍸</h1>
+<form>
+  <!-- input ทั้งหมด -->
+  <button type="submit">Reserve Now</button>
+</form>
 
-  <form>
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Email" required>
-    
-    <select>
-      <option>2 People</option>
-      <option>4 People</option>
-      <option>6 People</option>
-    </select>
+<p id="message"></p>
 
-    <input type="date" required>
-    <input type="time" required>
-
-    <button type="submit">Reserve Now</button>
-    <p id="message" style="color: lightgreen; margin-top: 10px;"></p>
-  </form>
-</div>
-
- <script>
+<script>
 document.querySelector("form").addEventListener("submit", function(e) {
   e.preventDefault();
 
   const name = document.querySelector('input[type="text"]').value;
-  const message = document.getElementById("message");
-
-  message.innerText = "Reservation successful, " + name + "! 🍸";
-
-  this.reset();
+  document.getElementById("message").innerText =
+    "Reservation successful, " + name;
 });
-</script> 
+</script>
 </body>
 </html>
