@@ -66,5 +66,16 @@ button:hover {
   </form>
 </div>
 
+  <script>
+document.querySelector("form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.querySelector('input[type="text"]').value;
+
+  alert("Reservation successful, " + name + "! 🍸");
+
+  this.reset();
+});
+</script>
 </body>
 </html>
